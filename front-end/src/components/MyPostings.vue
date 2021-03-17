@@ -159,6 +159,7 @@ export default {
           post: this.post,
           likeCount: this.likeCount,
           dislikeCount: this.dislikeCount,
+          created: new Date().toLocaleString()
         });
         this.post = "";
         this.getPostings();
