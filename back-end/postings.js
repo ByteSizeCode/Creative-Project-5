@@ -19,7 +19,7 @@ const postingSchema = new mongoose.Schema({
   post: String,
   created: {
     type: Date,
-    default: Date.now
+    default: new Date().toLocaleString()
   },
   likeCount: Number,
   dislikeCount: Number,

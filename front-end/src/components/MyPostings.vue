@@ -1,18 +1,14 @@
 <template>
   <div class="main">
     <h2>Logged in as: {{user.firstName}} {{user.lastName}} <button @click="logout" class="pure-button pure-button-primary">Logout</button></h2>
-    <h1>Posts</h1>
-    <div>
-      <button @click="setCreating" class="pure-button button-xsmall">
-        <i class="fas fa-plus" />
-      </button>
-    </div>
-    <form class="pure-form" v-if="creating || postings.length > 0" @submit.prevent="addPosting">
-      <legend>{{new Date().toLocaleString()}}</legend>
+    <h1>Add Post:</h1>
+    <form class="pure-form" @submit.prevent="addPosting">
+
+      <legend>{{interval}}</legend>
       <fieldset>
         <textarea v-model="post"></textarea>
         <br />
-        <button class="pure-button pure-button-primary" type="submit">Submit</button>
+        <button class="pure-button pure-button-primary" type="submit">Post</button>
       </fieldset>
     </form>
 
@@ -62,24 +58,37 @@ export default {
   name: 'MyPostings',
   data() {
     return {
-      creating: false,
+      creating: true,
       post: '',
       postings: [],
       showEditField: false,
       likeCount: 0,
-      dislikeCount: 0
+      dislikeCount: 0,
+
+      interval: "loading...",
 
     }
   },
   computed: {
+
     user() {
       return this.$root.$data.user;
     }
   },
   created() {
     this.getPostings();
+    this.getCurrentTime(); //Don't wait 1 second, update time immediately
+    //Update time every second
+    setInterval(() => {
+      this.getCurrentTime();
+    }, 1000)
   },
+
+
   methods: {
+    getCurrentTime() {
+      this.interval = new Date().toLocaleString()
+    },
     async logout() {
       try {
         await axios.delete("/api/users");
@@ -135,7 +144,6 @@ export default {
         });
         this.showEditField = !this.showEditField //Make edit field disappear
         this.post = null;
-        this.creating = false;
         this.getPostings();
         return true;
       } catch (error) {
@@ -145,12 +153,6 @@ export default {
     time(d) {
       return moment(d).format('D MMMM YYYY, h:mm:ss a');
     },
-    setCreating() {
-      this.creating = true;
-    },
-    cancelCreating() {
-      this.creating = false;
-    },
     async addPosting() {
       try {
         await axios.post("/api/postings", {
@@ -159,7 +161,6 @@ export default {
           dislikeCount: this.dislikeCount,
         });
         this.post = "";
-        this.creating = false;
         this.getPostings();
         return true;
       } catch (error) {
@@ -170,7 +171,6 @@ export default {
       try {
         await axios.delete("/api/postings/" + posting._id);
         this.post = null;
-        this.creating = false;
         this.getPostings();
         return true;
       } catch (error) {
@@ -380,3 +380,6 @@ label {
 }
 
 </style>
+
+
+
