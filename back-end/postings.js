@@ -19,7 +19,7 @@ const postingSchema = new mongoose.Schema({
   post: String,
   created: {
     type: Date,
-    default: new Date().toLocaleString()
+    default: Date.now
   },
   likeCount: Number,
   dislikeCount: Number,
@@ -58,7 +58,8 @@ router.post('/', validUser, async (req, res) => {
     user: req.user,
     post: req.body.post,
     likeCount: req.body.likeCount,
-    dislikeCount: req.body.dislikeCount
+    dislikeCount: req.body.dislikeCount,
+    created: new Date().toLocaleString()
   });
   try {
     await posting.save();
