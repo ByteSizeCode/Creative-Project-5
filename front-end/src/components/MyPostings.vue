@@ -419,10 +419,11 @@ label {
   }
 
   .post .fancy-subheading-mini {
-    font-family: Arial;
-    font-size: 18px;
+    /*font-family: Arial;*/
+    font-size: 19px;
     color: white;
     margin-bottom: 10px;
+    /*font-style: italic;*/
     /*font-style: oblique;*/
     overflow-wrap: break-word;
   }
