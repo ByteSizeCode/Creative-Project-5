@@ -234,25 +234,6 @@ label {
 
 
 
-.post {
-  background: #666;
-  color: #fff;
-  text-align: center;
-  border: 5px solid #444;
-  border-radius: 5px;
-  /*padding: 10px;*/
-  margin: 1em 0;
-  width:30%;
-}
-.post .fancy-heading {
-  font-family: Arial;
-  font-size: 32px;
-  color: white;
-  margin-bottom: 10px;
-  font-style: italic;
-  /*font-style: oblique;*/
-  overflow-wrap: break-word;
-}
 
 .post .fancy-subheading {
   font-family: Arial;
@@ -264,28 +245,138 @@ label {
   font-size: 12px;
 }
 
-.post .fancy-button {
-  background: #fff;
-  color: #666;
-  padding: 1.5em;
-}
-
 .invisible {
   opacity: 0;
   margin-top: -4px;
 }
 
-.post .button2 {
-  background: darkgray;
-  color: #666;
-  padding: 0.8em;
-}
+
 
 .noPostsMessage {
   box-shadow: -10px -10px 30px 4px rgba(0,0,0,0.1),
   10px 10px 30px 4px rgba(45,78,255,0.15);
   color: gray;
   background-color: white;
+}
+
+/*.post .fancy-button {*/
+/*  background: #fff;*/
+/*  color: #666;*/
+/*  padding: 1.5em;*/
+/*}*/
+
+/*.post .button2 {*/
+/*  background: darkgray;*/
+/*  color: #666;*/
+/*  padding: 0.8em;*/
+/*}*/
+
+/* Masonry on large screens */
+@media only screen and (min-width: 1024px) {
+  .post {
+    background: #666;
+    color: #fff;
+    text-align: center;
+    border: 5px solid #444;
+    border-radius: 5px;
+    /*padding: 10px;*/
+    margin: 1em 0;
+    width:30%;
+  }
+
+  .post .fancy-button {
+    background: #fff;
+    color: #666;
+    padding: 1.5em;
+  }
+
+  .post .button2 {
+    background: darkgray;
+    color: #666;
+    padding: 0.8em;
+  }
+
+  .post .fancy-heading {
+    font-family: Arial;
+    font-size: 32px;
+    color: white;
+    margin-bottom: 10px;
+    font-style: italic;
+    /*font-style: oblique;*/
+    overflow-wrap: break-word;
+  }
+}
+
+/* Masonry on medium-sized screens */
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+  .post {
+    background: #666;
+    color: #fff;
+    text-align: center;
+    border: 5px solid #444;
+    border-radius: 5px;
+    /*padding: 10px;*/
+    margin: 1em 0;
+    width:60%;
+  }
+
+  .post .fancy-button {
+    background: #fff;
+    color: #666;
+    padding: 1em;
+  }
+
+  .post .button2 {
+    background: darkgray;
+    color: #666;
+    padding: 0.5em;
+  }
+
+  .post .fancy-heading {
+    font-family: Arial;
+    font-size: 30px;
+    color: white;
+    margin-bottom: 10px;
+    font-style: italic;
+    /*font-style: oblique;*/
+    overflow-wrap: break-word;
+  }
+}
+
+/* Masonry on small screens */
+@media only screen and (max-width: 767px) and (min-width: 140px) {
+  .post {
+    background: #666;
+    color: #fff;
+    text-align: center;
+    border: 5px solid #444;
+    border-radius: 5px;
+    /*padding: 10px;*/
+    margin: 1em 0;
+    width:100%;
+  }
+
+  .post .fancy-button {
+    background: #fff;
+    color: #666;
+    padding: 0.4em;
+  }
+
+  .post .button2 {
+    background: darkgray;
+    color: #666;
+    padding: 0.1em;
+  }
+
+  .post .fancy-heading {
+    font-family: Arial;
+    font-size: 28px;
+    color: white;
+    margin-bottom: 10px;
+    font-style: italic;
+    /*font-style: oblique;*/
+    overflow-wrap: break-word;
+  }
 }
 
 </style>
