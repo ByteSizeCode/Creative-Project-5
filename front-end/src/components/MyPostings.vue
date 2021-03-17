@@ -330,6 +330,10 @@ label {
   animation: fadein 2s;
 }
 
+.post {
+  animation: 1s linear fadein;
+}
+
 /* Masonry on large screens */
 @media only screen and (min-width: 1024px) {
   .post {
@@ -412,6 +416,15 @@ label {
     /*padding: 10px;*/
     margin: 1em 0;
     width:100%;
+  }
+
+  .post .fancy-subheading-mini {
+    font-family: Arial;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 10px;
+    /*font-style: oblique;*/
+    overflow-wrap: break-word;
   }
 
   .post .fancy-button {
